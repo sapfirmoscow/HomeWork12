@@ -1,12 +1,21 @@
-
 package ru.sberbank.homework12.entity;
+
+import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Forecast {
+@Entity
+public class Forecast implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    public int id;
 
     @SerializedName("date")
     @Expose
@@ -37,9 +46,12 @@ public class Forecast {
     private String moonText;
     @SerializedName("parts")
     @Expose
+    @Embedded
     private Parts parts;
     @SerializedName("hours")
     @Expose
+    @Ignore
+    @Embedded
     private List<Hour> hours = null;
 
     public String getDate() {
@@ -129,5 +141,4 @@ public class Forecast {
     public void setHours(List<Hour> hours) {
         this.hours = hours;
     }
-
 }

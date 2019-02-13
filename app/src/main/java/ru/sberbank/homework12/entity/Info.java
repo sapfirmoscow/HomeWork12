@@ -1,5 +1,6 @@
-
 package ru.sberbank.homework12.entity;
+
+import android.arch.persistence.room.Embedded;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -41,6 +42,7 @@ public class Info {
     private int zoom;
     @SerializedName("tzinfo")
     @Expose
+    @Embedded
     private Tzinfo tzinfo;
     @SerializedName("def_pressure_mm")
     @Expose
@@ -54,6 +56,25 @@ public class Info {
     @SerializedName("url")
     @Expose
     private String url;
+
+    public Info(boolean f, boolean n, boolean nr, boolean ns, boolean nsr, boolean p, float lat, float lon, int geoid, String slug, int zoom, Tzinfo tzinfo, int defPressureMm, int defPressurePa, boolean h, String url) {
+        this.f = f;
+        this.n = n;
+        this.nr = nr;
+        this.ns = ns;
+        this.nsr = nsr;
+        this.p = p;
+        this.lat = lat;
+        this.lon = lon;
+        this.geoid = geoid;
+        this.slug = slug;
+        this.zoom = zoom;
+        this.tzinfo = tzinfo;
+        this.defPressureMm = defPressureMm;
+        this.defPressurePa = defPressurePa;
+        this.h = h;
+        this.url = url;
+    }
 
     public boolean isF() {
         return f;

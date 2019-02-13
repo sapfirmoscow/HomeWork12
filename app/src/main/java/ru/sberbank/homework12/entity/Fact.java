@@ -1,5 +1,6 @@
-
 package ru.sberbank.homework12.entity;
+
+import android.arch.persistence.room.Embedded;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -59,10 +60,33 @@ public class Fact {
     private int obsTime;
     @SerializedName("accum_prec")
     @Expose
+    @Embedded
     private AccumPrec accumPrec;
     @SerializedName("source")
     @Expose
     private String source;
+
+    public Fact(int temp, int feelsLike, String icon, String condition, float windSpeed, float windGust, String windDir, int pressureMm, int pressurePa, int humidity, int uvIndex, int soilTemp, float soilMoisture, String daytime, boolean polar, String season, int obsTime, AccumPrec accumPrec, String source) {
+        this.temp = temp;
+        this.feelsLike = feelsLike;
+        this.icon = icon;
+        this.condition = condition;
+        this.windSpeed = windSpeed;
+        this.windGust = windGust;
+        this.windDir = windDir;
+        this.pressureMm = pressureMm;
+        this.pressurePa = pressurePa;
+        this.humidity = humidity;
+        this.uvIndex = uvIndex;
+        this.soilTemp = soilTemp;
+        this.soilMoisture = soilMoisture;
+        this.daytime = daytime;
+        this.polar = polar;
+        this.season = season;
+        this.obsTime = obsTime;
+        this.accumPrec = accumPrec;
+        this.source = source;
+    }
 
     public int getTemp() {
         return temp;

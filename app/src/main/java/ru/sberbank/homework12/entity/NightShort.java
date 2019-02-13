@@ -1,10 +1,11 @@
-
 package ru.sberbank.homework12.entity;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class NightShort {
+import java.io.Serializable;
+
+public class NightShort implements Serializable {
 
     @SerializedName("temp")
     @Expose

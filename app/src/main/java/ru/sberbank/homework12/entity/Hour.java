@@ -1,4 +1,3 @@
-
 package ru.sberbank.homework12.entity;
 
 import com.google.gson.annotations.Expose;

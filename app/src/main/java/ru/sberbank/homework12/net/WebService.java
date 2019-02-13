@@ -19,7 +19,6 @@ public interface WebService {
      * @param limit   -срок прогноза
      */
 
-
     @GET("forecast/")
     Call<ForecastModel> getCurrentForecast(@Header("X-Yandex-API-Key") String apiKey, @Query("lat") String lat, @Query("lon") String lon, @Query("extra") boolean isExtra, @Query("hours") boolean isHours, @Query("limit") int limit);
 }

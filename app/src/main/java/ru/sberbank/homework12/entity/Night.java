@@ -1,10 +1,11 @@
-
 package ru.sberbank.homework12.entity;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Night {
+import java.io.Serializable;
+
+public class Night implements Serializable {
 
     @SerializedName("_source")
     @Expose
@@ -119,7 +120,47 @@ public class Night {
     }
 
     public String getCondition() {
-        return condition;
+        switch (condition) {
+            case "clear":
+                return "Ясно";
+            case "partly-cloudy":
+                return "Малооблачно";
+            case "cloudy":
+                return "Облачно с прояснениями";
+            case "overcast":
+                return "Пасмурно";
+            case "partly-cloudy-and-light-rain":
+                return "Небольшой дождь";
+            case "partly-cloudy-and-rain":
+                return "Дождь";
+            case "overcast-and-rain":
+                return "Сильный дождь";
+            case "overcast-thunderstorms-with-rain":
+                return "Сильный дождь, гроза";
+            case "cloudy-and-light-rain":
+                return "Небольшой дождь";
+            case "overcast-and-light-rain":
+                return "Небольшой дождь";
+            case "cloudy-and-rain":
+                return "Дождь";
+            case "overcast-and-wet-snow":
+                return "Дождь со снегом";
+            case "partly-cloudy-and-light-snow":
+                return "Небольшой снег";
+            case "partly-cloudy-and-snow":
+                return "Снег";
+            case "overcast-and-snow":
+                return "Снегопад";
+            case "cloudy-and-light-snow":
+                return "Небольшой снег";
+            case "overcast-and-light-snow":
+                return "Небольшой снег";
+            case "cloudy-and-snow":
+                return "Снег";
+            default:
+                return condition;
+        }
+
     }
 
     public void setCondition(String condition) {
