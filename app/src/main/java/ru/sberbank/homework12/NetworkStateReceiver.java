@@ -15,7 +15,7 @@ public class NetworkStateReceiver extends BroadcastReceiver {
     protected Boolean mConnected;
 
     public NetworkStateReceiver() {
-        mListeners = new HashSet<NetworkStateReceiverListener>();
+        mListeners = new HashSet<>();
         mConnected = null;
     }
 
@@ -44,7 +44,7 @@ public class NetworkStateReceiver extends BroadcastReceiver {
         if (mConnected == null || listener == null)
             return;
 
-        if (mConnected == true)
+        if (mConnected)
             listener.networkAvailable();
         else
             listener.networkUnavailable();

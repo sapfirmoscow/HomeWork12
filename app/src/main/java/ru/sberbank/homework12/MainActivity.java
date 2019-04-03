@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity implements NetworkStateRecei
         mRecyclerView.setLayoutManager(mLayoutManager);
         mMyAdapter = new MyAdapter();
         mRecyclerView.setAdapter(mMyAdapter);
-
-
     }
 
     private void initListeners() {
